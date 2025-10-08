@@ -1,0 +1,4 @@
+original_data_path = 'raw features'
+processed_data_path = 'processed features'
+unformal = 'processed features/unformal.txt'
+formal = 'processed features/formal.txt'
