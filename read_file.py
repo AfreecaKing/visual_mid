@@ -10,8 +10,7 @@ open(config.unformal, 'w').close()
 
 
 def z_score_normalize(features):
-    # 轉成 float numpy array
-    arr = np.array([float(x) for x in features], dtype=float)
+    arr = np.array([float(x) for x in features], dtype=float)  # 轉成 float numpy array
     mean = np.mean(arr)
     std = np.std(arr)
     if std == 0:  # 避免除以零
@@ -33,10 +32,12 @@ for filename in glob.glob(config.original_data_path + "/*.txt"):  # 讀取資料
 
     with open(config.unformal, 'a', encoding='utf-8') as f:  # 寫入資料
         for i in range(len(picture_name)):
-            f.write(picture_name[i] + '\n')
+            f.write(picture_name[i][:-8] + ' ')
+            f.write(picture_name[i] + ' ')
             f.write(' '.join(picture_content[i]) + '\n')
     with open(config.formal, 'a', encoding='utf-8') as f:  # 寫入Z分數資料
         for i in range(len(picture_name)):
-            f.write(picture_name[i] + '\n')
+            f.write(picture_name[i][:-8] + ' ')
+            f.write(picture_name[i] + ' ')
             z_score = z_score_normalize(picture_content[i])
             f.write(' '.join(f"{x:.4f}" for x in z_score) + '\n')
