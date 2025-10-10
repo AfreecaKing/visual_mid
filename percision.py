@@ -1,6 +1,7 @@
 import config
 import function
 import pandas as pd
+
 # 把processed features內的txt資料讀出來
 # 讀取unformal
 rows = []
@@ -14,7 +15,7 @@ unformal_df = pd.DataFrame(rows)  # 存成dataframe
 unformal_df.rename(columns={0: "feature", 1: "name"}, inplace=True)
 rows.clear()
 # 讀取formal
-with open(config.formal, 'r', encoding='utf-8') as f:
+with open(config.test, 'r', encoding='utf-8') as f:
     for line in f:
         parts = line.strip().split()
         feature, name = parts[0], parts[1]
@@ -24,5 +25,13 @@ formal_df = pd.DataFrame(rows)  # 存成dataframe
 formal_df.rename(columns={0: "feature", 1: "name"}, inplace=True)
 del rows
 
-# 顯示前幾列
-function.Percision(function.ED(formal_df))
+# 顯示結果
+# 沒正規化
+print("沒正規化:")
+print(f"Cosine Similarity:{function.Percision(function.calc_cosine(unformal_df))}")
+print(f"Euclidean Distance:{function.Percision(function.calc_ed(unformal_df))}")
+print(f"PCC:{function.Percision(function.calc_pcc(unformal_df))}")
+print("正規化:")
+print(f"Cosine Similarity:{function.Percision(function.calc_cosine(formal_df))}")
+print(f"Euclidean Distance:{function.Percision(function.calc_ed(formal_df))}")
+print(f"PCC:{function.Percision(function.calc_pcc(formal_df))}")
