@@ -3,3 +3,5 @@ processed_data_path = 'processed features'
 unformal = 'processed features/unformal.txt'
 z_score = 'processed features/z_formal.txt'
 min_max = 'processed features/features_fnormal.txt'
+max = 'processed features/max_formal.txt'
+

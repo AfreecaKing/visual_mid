@@ -23,13 +23,15 @@ print(f"Euclidean Distance:{function.Percision(function.calc_ed(unformal_df))}")
 print(f"PCC:{function.Percision(function.calc_pcc(unformal_df))}")
 print("正規化")
 print("選擇正規化方式")
-number = input("1.min-max 2.z-score:")
+number = input("1.min-max 2.z-score 3.max:")
 # 讀取formal
 path = ''
 if number == '1':
-    path = config.min_max
+    path = config.test2
 elif number == '2':
     path = config.z_score
+elif number == '3':
+    path=config.max
 with open(path, 'r', encoding='utf-8') as f:
     for line in f:
         parts = line.strip().split()
