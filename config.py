@@ -1,5 +1,5 @@
 original_data_path = 'raw features'
 processed_data_path = 'processed features'
 unformal = 'processed features/unformal.txt'
-formal = 'processed features/formal.txt'
-test = 'processed features/features_fnormal.txt'
+z_score = 'processed features/z_formal.txt'
+min_max = 'processed features/features_fnormal.txt'
