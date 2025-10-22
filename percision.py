@@ -27,7 +27,7 @@ number = input("1.min-max 2.z-score 3.max:")
 # 讀取formal
 path = ''
 if number == '1':
-    path = config.test2
+    path = config.unformal
 elif number == '2':
     path = config.z_score
 elif number == '3':

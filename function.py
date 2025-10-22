@@ -60,4 +60,5 @@ def Percision(df):  # 計算精準度
         same = np.sum(neighbors == feature)
         same_features.append(same / 10)
     df['percision'] = same_features
-    return df['percision'].mean()
+    #return df['percision'].mean()
+    return df
